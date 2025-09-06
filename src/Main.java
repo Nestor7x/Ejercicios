@@ -2,27 +2,41 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(imc());
+
+        menu();
         }
-       /* public static void menu(){
+        public static void menu(){
 
 
-        int opcion=3
+        Scanner teclado = new Scanner(System.in);
+        int opcion;
+            System.out.println("Menu de opciones: \n " +
+                    "1. Ejercicio dos dados \n " +
+                    "2. Ejercicio 3 dados \n" +
+                    "3. Calcular IMC \n" +
+                    "4. Calcular notas del semestre \n" +
+                    "5. \n" +
+                    "6. Salir \n");
+        opcion= teclado.nextInt();
                 switch (opcion){
                     case 1:
                         System.out.println("Opcion 1: Ejercicio 2 dados");
+                        dados2();
                         break;
                     case 2:
                         System.out.println("Opcion 2: Ejercicio 3 dados");
+                        dados3();
                         break;
                     case 3:
                         System.out.println("Opcion 3: Calcular IMC");
+                        System.out.println(imc());
                         break;
                     case 4:
-                        System.out.println("Opcion 4: Ejercicio 2 dados");
+                        System.out.println("Opcion 4: Calcular notas del semestre");
+                        notas();
                         break;
                     case 5:
-                        System.out.println("Opcion 5: Ejercicio 2 dados");
+                        System.out.println("Opcion 5: ");
                         break;
                     case 6:
                         System.out.println("Opcion 6: Salir");
@@ -31,7 +45,7 @@ public class Main {
                 }
         }
 
-    public static void dados2{
+    public static void dados2(){
 
         Random aleatorio = new Random();
         int d1, d2, suma1=0, suma2=0;
@@ -53,12 +67,12 @@ public class Main {
         if (suma1>suma2) {
             System.out.println("El dado ganador es: Dado 1");
             System.out.println("Segundo lugar: Dado 2");
+        }
             else {
                 System.out.println("El dado ganador es: Dado 2");
                 System.out.println("Segundo lugar: Dado 1");
             }
 
-        }
 
     }
     public static void dados3(){
@@ -121,7 +135,6 @@ public class Main {
 
     }
 
-        */
     public static String imc(){
         Scanner teclado = new Scanner(System.in);
                 double n1, n2, operacion;
@@ -132,28 +145,76 @@ public class Main {
         n2= teclado.nextDouble();
         operacion=n1/(n2*n2);
 
-        System.out.println("Su peso es:"+n1);
+        System.out.println("Su peso es: "+n1+" kg");
+        System.out.println("Su estatura es: "+n2+" m");
         if (operacion<18.5){
-            resultado="Su IMC es: "+operacion+"Tiene bajo peso";
+            resultado="Su IMC es: "+operacion+", Tiene bajo peso";
         } else if (operacion>=18.5 && operacion<24.9) {
-            resultado="Su IMC es: "+operacion+"Tiene peso normal";
+            resultado="Su IMC es: "+operacion+", Tiene peso normal";
         } else if (operacion>25 && operacion<26.9) {
-            resultado="Su IMC es: "+operacion+"Tiene sobrepeso de grado 1";
+            resultado="Su IMC es: "+operacion+", Tiene sobrepeso de grado 1";
         } else if (operacion>27 && operacion<29.9) {
-            resultado="Su IMC es: "+operacion+"Tiene sobrepeso de grado 2";
+            resultado="Su IMC es: "+operacion+", Tiene sobrepeso de grado 2";
         } else if (operacion>30 && operacion<34.9) {
-            resultado="Su IMC es: "+operacion+"Tiene obesidad de tipo 1";
+            resultado="Su IMC es: "+operacion+", Tiene obesidad de tipo 1";
         } else if (operacion>35 && operacion<39.9) {
-            resultado="Su IMC es: "+operacion+"Tiene obesidad de tipo 2";
+            resultado="Su IMC es: "+operacion+", Tiene obesidad de tipo 2";
         } else if (operacion>=40 && operacion<49.9) {
-            resultado="Su IMC es: "+operacion+"Tiene obesidad de tipo 3";
+            resultado="Su IMC es: "+operacion+", Tiene obesidad de tipo 3";
         }
         else {
-            resultado="Su IMC es: "+operacion+"Tiene obesidad de tipo 4, extrema";
+            resultado="Su IMC es: "+operacion+", Tiene obesidad de tipo 4, extrema";
         }
 
-        return resultado+operacion;
+        return resultado;
 
     }
+    public static void notas(){
+        Scanner teclado = new Scanner(System.in);
+        double fisica, calculoIntegral, comunicacion, fundamentosAdm, ingles, programacion, notaFinal;
 
+        System.out.println("Ingrese la nota obtenida en fisica(1-5): ");
+        fisica= teclado.nextDouble();
+        while (fisica<1 || fisica>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            fisica= teclado.nextDouble();
+        }
+        System.out.println("Ingrese la nota obtenida en calculo Integral(1-5): ");
+        calculoIntegral= teclado.nextDouble();
+        while (calculoIntegral<1 || calculoIntegral>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            calculoIntegral= teclado.nextDouble();
+        }
+        System.out.println("Ingrese la nota obtenida en comunicacion(1-5): ");
+        comunicacion= teclado.nextDouble();
+        while (comunicacion<1 || comunicacion>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            comunicacion= teclado.nextDouble();
+        }
+        System.out.println("Ingrese la nota obtenida en fundamentos Administrativos(1-5): ");
+        fundamentosAdm= teclado.nextDouble();
+        while (fundamentosAdm<1 || fundamentosAdm>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            fundamentosAdm= teclado.nextDouble();
+        }
+        System.out.println("Ingrese la nota obtenida en ingles(1-5): ");
+        ingles= teclado.nextDouble();
+        while (ingles<1 || ingles>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            ingles= teclado.nextDouble();
+        }
+        System.out.println("Ingrese la nota obtenida en programacion(1-5): ");
+        programacion= teclado.nextDouble();
+        while (programacion<1 || programacion>5){
+            System.out.println("El rango de la nota debe ser de 1 a 5, vuelva a ingresar el valor: ");
+            programacion= teclado.nextDouble();
+        }
+
+        notaFinal=((fisica*4+calculoIntegral*4+comunicacion*2+fundamentosAdm*2+ingles*2+programacion*3)/17);
+        if (notaFinal<3.2){
+            System.out.println("Lo sentimos, rebrobo el semestre, su4 nota final es: "+notaFinal);
+        } else {
+            System.out.println("Felicidades, aprobo el semestre, su nota final es: "+notaFinal);
+        }
+    }
     }
